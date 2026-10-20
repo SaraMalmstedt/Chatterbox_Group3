@@ -21,4 +21,8 @@ public class Message {
 	public String getAuthor() {
 		return author;
 	}
+	
+	public LocalDate getCreatedAt() {
+		return createdAt;
+	}
 }
