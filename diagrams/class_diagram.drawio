@@ -38,28 +38,28 @@
           <mxGeometry height="30" width="60" x="350" y="80" as="geometry" />
         </mxCell>
         <mxCell id="NQ8y6Wf9hVhXplTBbDqG-23" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="guestView" vertex="1">
-          <mxGeometry height="100" width="140" x="590" y="360" as="geometry" />
+          <mxGeometry height="100" width="140" x="535" y="480" as="geometry" />
         </mxCell>
         <mxCell id="NQ8y6Wf9hVhXplTBbDqG-29" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="fileHandler" vertex="1">
-          <mxGeometry height="52" width="140" x="344" y="600" as="geometry" />
+          <mxGeometry height="52" width="140" x="344" y="720" as="geometry" />
         </mxCell>
         <mxCell id="NQ8y6Wf9hVhXplTBbDqG-30" parent="NQ8y6Wf9hVhXplTBbDqG-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ field: type" vertex="1">
           <mxGeometry height="26" width="140" y="26" as="geometry" />
         </mxCell>
         <mxCell id="NQ8y6Wf9hVhXplTBbDqG-33" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="appController" vertex="1">
-          <mxGeometry height="120" width="140" x="350" y="260" as="geometry" />
+          <mxGeometry height="120" width="140" x="344" y="280" as="geometry" />
         </mxCell>
         <mxCell id="NQ8y6Wf9hVhXplTBbDqG-34" parent="NQ8y6Wf9hVhXplTBbDqG-33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ postMessage()&lt;div&gt;+ deleteMessage()&lt;/div&gt;&lt;div&gt;+ getOwnMessages()&lt;/div&gt;&lt;div&gt;+ getAllMessages()&lt;/div&gt;&lt;div&gt;+ checkUsername()&lt;/div&gt;&lt;div&gt;+ checkPassword()&lt;/div&gt;" vertex="1">
           <mxGeometry height="94" width="140" y="26" as="geometry" />
         </mxCell>
         <mxCell id="NQ8y6Wf9hVhXplTBbDqG-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&amp;lt;&amp;lt; Entity &amp;gt;&amp;gt;" vertex="1">
-          <mxGeometry height="40" width="100" x="130" as="geometry" />
+          <mxGeometry height="40" width="100" x="120" as="geometry" />
         </mxCell>
         <mxCell id="NQ8y6Wf9hVhXplTBbDqG-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&amp;lt;&amp;lt; Entity &amp;gt;&amp;gt;" vertex="1">
-          <mxGeometry height="40" width="100" x="610" as="geometry" />
+          <mxGeometry height="40" width="100" x="555" as="geometry" />
         </mxCell>
         <mxCell id="NQ8y6Wf9hVhXplTBbDqG-41" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="userView" vertex="1">
-          <mxGeometry height="52" width="140" x="110" y="360" as="geometry" />
+          <mxGeometry height="52" width="140" x="100" y="480" as="geometry" />
         </mxCell>
         <mxCell id="NQ8y6Wf9hVhXplTBbDqG-42" parent="NQ8y6Wf9hVhXplTBbDqG-41" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ displayMessage()" vertex="1">
           <mxGeometry height="26" width="140" y="26" as="geometry" />
