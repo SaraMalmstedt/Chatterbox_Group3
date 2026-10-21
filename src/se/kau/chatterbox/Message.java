@@ -10,8 +10,6 @@ public class Message {
 	 * Association, vem som skapar meddelandet refererar till objektet User som
 	 * skrev meddelandet
 	 */
-	// Tänkte också göra så här först, men frågan är ifall ett Message behöver veta allt om en User eller bara User.username?
-	// Nu är jag lite petig men det kan bli trubbel ifall ett Message kan få tag i en User.Id tex
 	private User author;
 	/* Datumet då meddelanadet skrevs. */
 	private LocalDate createdAt;
