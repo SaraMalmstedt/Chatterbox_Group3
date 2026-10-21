@@ -13,7 +13,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="q44glZb1aOkEqBfLiYjE-67" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" value="Enter username and password" vertex="1">
-          <mxGeometry height="40" width="120" x="619" y="390" as="geometry" />
+          <mxGeometry height="40" width="120" x="619" y="375" as="geometry" />
         </mxCell>
         <mxCell id="q44glZb1aOkEqBfLiYjE-82" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" value="Select action" vertex="1">
           <mxGeometry height="40" width="120" x="619" y="690" as="geometry" />
