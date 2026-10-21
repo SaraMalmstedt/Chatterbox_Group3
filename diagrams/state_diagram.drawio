@@ -88,7 +88,7 @@
           <mxGeometry height="30" width="60" x="20" as="geometry" />
         </mxCell>
         <mxCell id="3CmLa8dbNiV0C4S0Ocsf-12" parent="3CmLa8dbNiV0C4S0Ocsf-28" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="deleteMessage(messageId)[own message]" vertex="1">
-          <mxGeometry height="30" width="90" x="334" y="250" as="geometry" />
+          <mxGeometry height="30" width="90" x="334" y="260" as="geometry" />
         </mxCell>
         <mxCell id="3CmLa8dbNiV0C4S0Ocsf-6" parent="3CmLa8dbNiV0C4S0Ocsf-28" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="postMessage(content) [valid message]" vertex="1">
           <mxGeometry height="30" width="100" x="110" y="160" as="geometry" />
