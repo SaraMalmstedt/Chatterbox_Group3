@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class FileHandler {
 
-	private String fileName = "message.csv";
+	private String fileName = "messages.csv";
 	
 	public ArrayList<Message> loadMessages(ArrayList<User> users) {
 	return new ArrayList<>();

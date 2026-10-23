@@ -3,16 +3,20 @@ package se.kau.chatterbox;
 import java.time.LocalDate;
 
 public class Main {
-	
-	AppController controller = new AppController();
-	UserView userView = new UserView();
-	GuestView guestView = new GuestView();
 
 	public static void displayStartMenu() {
 
 	}
 
 	public static void main(String[] args) {
+
+		// Creates an AppController and saves it in the variable controller 
+		AppController controller = new AppController();
+		// Creates a UserView and hands controller over to its constuctir 
+		UserView userView = new UserView(controller);
+		// Creates a GuestView and hands controller over to its constructur
+		GuestView guestView = new GuestView(controller);
+
 		// Test for User
 		User sara = new User(1, "Sara", "password");
 		System.out.println(sara.getUsername() + " " + sara.getPassword());
