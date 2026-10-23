@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36">
   <diagram name="Sida-1" id="ecfGJhrvPNZDmBEUVIzu">
-    <mxGraphModel dx="1414" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1543" dy="675" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -115,7 +115,7 @@
             <mxPoint x="570" y="280" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0nAQZ1rl8n8ZolDDFzfU-6" connectable="0" parent="0nAQZ1rl8n8ZolDDFzfU-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;4. Login (username, password&lt;/span&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="0nAQZ1rl8n8ZolDDFzfU-6" connectable="0" parent="0nAQZ1rl8n8ZolDDFzfU-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;4. login (username, password&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry relative="1" x="-0.4588" y="2" as="geometry">
             <mxPoint x="30" y="-9" as="offset" />
           </mxGeometry>
@@ -165,7 +165,7 @@
             <mxPoint x="400" y="440" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0nAQZ1rl8n8ZolDDFzfU-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="6.2 displayStatMenu()" vertex="1">
+        <mxCell id="0nAQZ1rl8n8ZolDDFzfU-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="6.2 displayMenu()" vertex="1">
           <mxGeometry height="30" width="60" x="239" y="410" as="geometry" />
         </mxCell>
         <mxCell id="0nAQZ1rl8n8ZolDDFzfU-18" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;dashed=1;" value="">
@@ -252,9 +252,9 @@
             <mxPoint x="760" y="760" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0nAQZ1rl8n8ZolDDFzfU-36" connectable="0" parent="0nAQZ1rl8n8ZolDDFzfU-35" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="14.new Message&lt;div&gt;&amp;nbsp;(Id, content, data, author)&lt;/div&gt;" vertex="1">
+        <mxCell id="0nAQZ1rl8n8ZolDDFzfU-36" connectable="0" parent="0nAQZ1rl8n8ZolDDFzfU-35" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="14.new Message&lt;div&gt;&amp;nbsp;(MessageId, content, author, createdAt)&lt;/div&gt;" vertex="1">
           <mxGeometry relative="1" x="-0.3053" as="geometry">
-            <mxPoint x="31" y="-17" as="offset" />
+            <mxPoint x="28" y="-17" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="0nAQZ1rl8n8ZolDDFzfU-37" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
@@ -263,7 +263,7 @@
             <mxPoint x="960" y="800" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0nAQZ1rl8n8ZolDDFzfU-38" connectable="0" parent="0nAQZ1rl8n8ZolDDFzfU-37" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="15. SaveMessages" vertex="1">
+        <mxCell id="0nAQZ1rl8n8ZolDDFzfU-38" connectable="0" parent="0nAQZ1rl8n8ZolDDFzfU-37" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="15. saveMessages(messages)" vertex="1">
           <mxGeometry relative="1" x="-0.5641" as="geometry">
             <mxPoint y="-8" as="offset" />
           </mxGeometry>
