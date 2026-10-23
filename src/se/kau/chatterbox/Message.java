@@ -11,7 +11,6 @@ public class Message {
 	 * skrev meddelandet
 	 */
 	private User author;
-	/* Datumet då meddelanadet skrevs. */
 	private LocalDate createdAt;
 
 	public Message(int messageId, String content, User author, LocalDate createdAt) {
