@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class UserView {
 	private AppController controller;
 	private Scanner scanner;
-	
-	
+
 	public boolean displayLogin() {
 		return false;
 	}

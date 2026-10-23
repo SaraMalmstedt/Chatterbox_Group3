@@ -3,6 +3,10 @@ package se.kau.chatterbox;
 import java.time.LocalDate;
 
 public class Main {
+	
+	AppController controller = new AppController();
+	UserView userView = new UserView();
+	GuestView guestView = new GuestView();
 
 	public static void displayStartMenu() {
 
