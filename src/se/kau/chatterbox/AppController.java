@@ -26,6 +26,7 @@ public class AppController {
 	public boolean login(String username, String password) {
 
 		for (int i = 0; i < users.size(); i++) {
+			// Saves incoming username and password in vairables
 			String thisUsername = users.get(i).getUsername();
 			String thisPassword = users.get(i).getPassword();
 
@@ -37,8 +38,14 @@ public class AppController {
 			}
 
 		}
-		
+
 		return false;
+	}
+
+	public ArrayList<Message> getAllMessages() {
+
+		return messages;
+
 	}
 
 	public boolean postMessage(String content) {
@@ -50,10 +57,6 @@ public class AppController {
 	}
 
 	public ArrayList<Message> getOwnMessages() {
-		return new ArrayList<>();
-	}
-
-	public ArrayList<Message> getAllMessages() {
 		return new ArrayList<>();
 	}
 
