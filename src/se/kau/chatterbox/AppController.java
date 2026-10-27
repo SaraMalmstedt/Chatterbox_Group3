@@ -9,7 +9,7 @@ public class AppController {
 	private User currentUser;
 	private FileHandler fileHandler;
 
-	// Constructur
+	// Constructor
 	public AppController() {
 		// Creates an empty list and fills it with users
 		users = new ArrayList<>();
@@ -18,28 +18,34 @@ public class AppController {
 		users.add(new User(3, "linnea123", "losenord3"));
 		users.add(new User(4, "pontus123", "losenord4"));
 
+		// Creates an instance of FileHandler and stores it in fileHandler
 		fileHandler = new FileHandler();
+		// Loads messages from the file. Each Message needs a User as author,
+		// but the file only has the username, so users is used to find the right User.
 		messages = fileHandler.loadMessages(users);
 	}
 
-	// Method to checks whether username and password are correct, and if so, sets
+	// Method that checks whether username and password are correct, and if so, sets
 	// currentUser
 	public boolean login(String username, String password) {
-
+		// Loops through all users and checks the entered username and password against
+		// each one
 		for (int i = 0; i < users.size(); i++) {
-			// Saves incoming username and password in vairables
+			// Saves username and password for position i in vairables
 			String thisUsername = users.get(i).getUsername();
 			String thisPassword = users.get(i).getPassword();
 
+			// if incoming username and password is correct..
 			if (thisUsername.equals(username) && thisPassword.equals(password)) {
 
+				// .. set currentUser as the user in position i
 				currentUser = users.get(i);
 				return true;
 
 			}
 
 		}
-
+		// No user matched and login failed
 		return false;
 	}
 
@@ -49,22 +55,29 @@ public class AppController {
 
 	}
 
+	// Method that returns the messages written by the logged-in user
 	public ArrayList<Message> getOwnMessages() {
+		// Creates an empty list to put the user's own messages in
 		ArrayList<Message> ownMessage = new ArrayList<>();
-
+		// If no one is logged in, the empty list is returned, so the program doesnt
+		// crasch
 		if (currentUser == null) {
 			return ownMessage;
 		}
+		// Gets the name of the logged in user
 		String currentUsername = currentUser.getUsername();
-
+		// Loops through all messages
 		for (int i = 0; i < messages.size(); i++) {
+			// Gets the name of the user who wrote the message at position i
 			String authorUsername = messages.get(i).getAuthor().getUsername();
-
+			// If the logged in user is the one who wrote the message..
 			if (authorUsername.equals(currentUsername)) {
+				// The whole message is added to the list
 				ownMessage.add(messages.get(i));
 			}
 
 		}
+		// When all messages have been looped through, we return the list
 		return ownMessage;
 
 	}
