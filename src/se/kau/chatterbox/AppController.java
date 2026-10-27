@@ -51,6 +51,10 @@ public class AppController {
 
 	public ArrayList<Message> getOwnMessages() {
 		ArrayList<Message> ownMessage = new ArrayList<>();
+
+		if (currentUser == null) {
+			return ownMessage;
+		}
 		String currentUsername = currentUser.getUsername();
 
 		for (int i = 0; i < messages.size(); i++) {
