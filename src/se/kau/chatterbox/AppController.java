@@ -11,7 +11,7 @@ public class AppController {
 
 	// Constructur
 	public AppController() {
-		//Creates an empty list and fills it with users
+		// Creates an empty list and fills it with users
 		users = new ArrayList<>();
 		users.add(new User(1, "sara123", "losenord1"));
 		users.add(new User(2, "martin123", "losenord2"));
@@ -22,7 +22,22 @@ public class AppController {
 		messages = fileHandler.loadMessages(users);
 	}
 
+	// Checks whether username and password are correct, and if so, sets currentUser
 	public boolean login(String username, String password) {
+
+		for (int i = 0; i < users.size(); i++) {
+			String thisUsername = users.get(i).getUsername();
+			String thisPassword = users.get(i).getPassword();
+
+			if (thisUsername.equals(username) && thisPassword.equals(password)) {
+
+				currentUser = users.get(i);
+				return true;
+
+			}
+
+		}
+		
 		return false;
 	}
 
