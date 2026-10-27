@@ -22,7 +22,8 @@ public class AppController {
 		messages = fileHandler.loadMessages(users);
 	}
 
-	// Checks whether username and password are correct, and if so, sets currentUser
+	// Method to checks whether username and password are correct, and if so, sets
+	// currentUser
 	public boolean login(String username, String password) {
 
 		for (int i = 0; i < users.size(); i++) {
@@ -42,9 +43,25 @@ public class AppController {
 		return false;
 	}
 
+	// Method that returns the list of all messages
 	public ArrayList<Message> getAllMessages() {
-
 		return messages;
+
+	}
+
+	public ArrayList<Message> getOwnMessages() {
+		ArrayList<Message> ownMessage = new ArrayList<>();
+		String currentUsername = currentUser.getUsername();
+
+		for (int i = 0; i < messages.size(); i++) {
+			String authorUsername = messages.get(i).getAuthor().getUsername();
+
+			if (authorUsername.equals(currentUsername)) {
+				ownMessage.add(messages.get(i));
+			}
+
+		}
+		return ownMessage;
 
 	}
 
@@ -54,10 +71,6 @@ public class AppController {
 
 	public boolean deleteMessage(int messageId) {
 		return false;
-	}
-
-	public ArrayList<Message> getOwnMessages() {
-		return new ArrayList<>();
 	}
 
 }
