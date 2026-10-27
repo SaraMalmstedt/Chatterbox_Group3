@@ -1,6 +1,8 @@
 package se.kau.chatterbox;
 
+import java.io.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -24,7 +26,13 @@ public class Main {
 		// Test for message
 		Message test = new Message(1, "This is a test", sara, LocalDate.now());
 		System.out.println(test.getAuthor().getUsername() + ": " + test.getContent() + " " + test.getCreatedAt());
-
+		
+		//Test for FileHandler
+		FileHandler fileHandler = new FileHandler();
+		fileHandler.printAllFiles();
+		
+		ArrayList<Message> messages = new ArrayList<Message>();
+		messages.add(test);
+		fileHandler.saveMessages(messages);
 	}
-
 }
