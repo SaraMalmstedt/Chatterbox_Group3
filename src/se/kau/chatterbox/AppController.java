@@ -3,7 +3,6 @@ package se.kau.chatterbox;
 import java.util.ArrayList;
 
 public class AppController {
-
 	private ArrayList<User> users;
 	private ArrayList<Message> messages;
 	private User currentUser;
@@ -90,26 +89,6 @@ public class AppController {
 	public boolean deleteMessage(int messageId) {
 		return false;
 	}
-	
-	//En check för att se ifall username finns i listan, 
-	//så att man inte får tillbaka null
- 	public boolean isUsernameInList(String username) {
- 		for(User user : users) {
- 			if(user.getUsername() == username) {
- 				return true;
- 			}
- 		}
- 		return false;
- 	}
- 	
- 	public User getUserByUsername(String username) {
- 		for(User user : users) {
- 			if(user.getUsername() == username) {
- 				return user;
- 			}
- 		}
- 		return null;
- 	}
  	
  	public void addUser(User user) {
  		users.add(user);
