@@ -51,7 +51,7 @@ public class FileHandler {
 			while (input.hasNextLine()) {
 				String line = input.nextLine();
 				System.out.println(line);
-				//Skippa header
+				//Skippa header, men det verkar inte funka
 				if (c == 0) {c++; continue;}
 				String[] toks = line.split("\t");
 				int id = Integer.parseInt(toks[0].trim()); 
