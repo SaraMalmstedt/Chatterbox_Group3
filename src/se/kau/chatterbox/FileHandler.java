@@ -53,11 +53,9 @@ public class FileHandler {
 			int c = 0;
 			while (input.hasNextLine()) {
 				String line = input.nextLine();
-				//Skippa header
+				//Skip header
 				if (c == 0) {c++; continue;}
-				
-				System.out.println("Loaded message: ");
-				
+								
 				String[] toks = line.split("\t");
 				int id = Integer.parseInt(toks[0].trim()); 
 				String username = toks[1].trim();
@@ -67,12 +65,6 @@ public class FileHandler {
 				if(isUsernameInList(users, username)) {
 					user = getUserByUsername(users, username);
 				}
-				System.out.println("id: " + id);
-				System.out.println("username: " + username);
-				System.out.println("created at: " + createdAt);
-				System.out.println("Content: " + content);
-				System.out.println("user: " + user);
-				System.out.println();
 				
 				Message message = new Message(id, content, user, createdAt);
 				messages.add(message);
@@ -93,13 +85,6 @@ public class FileHandler {
 								+ message.getAuthor() + "\t" 
 								+ message.getCreatedAt() + "\t"
 								+ message.getContent());
-				
-				//testutskrift, ta bort sen
-				//System.out.println("Skriver till CSV:");
-				//System.out.println(message.getMessageId() + "\t" 
-				//		+ message.getAuthor() + "\t" 
-				//		+ message.getCreatedAt() + "\t"
-				//		+ message.getContent());
 			}
 			writer.close();
 		} catch(IOException e){
