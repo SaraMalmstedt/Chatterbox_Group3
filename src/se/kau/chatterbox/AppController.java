@@ -120,7 +120,37 @@ public class AppController {
 
 	}
 
+	// Method that deletes a messsage if it belongs t the logged- in user. Returns
+	// true if it was deleted and saved.
 	public boolean deleteMessage(int messageId) {
+		// Returns false if no one is logged in
+		if (currentUser == null) {
+			return false;
+		}
+		// Loops through all messages to find the one with the given id
+		for (int i = 0; i < messages.size(); i++) {
+			int currentMessageId = messages.get(i).getMessageId();
+
+			if (currentMessageId == messageId) {
+				// Saves the name of the user who wrote the message in position i
+				String authorUsername = messages.get(i).getAuthor().getUsername();
+				// Saves the name of the user currently logged in
+				String currentUsername = currentUser.getUsername();
+				// If they are not the same, return false (deletion cannot happen)
+				if (!authorUsername.equals(currentUsername)) {
+					return false;
+				} else {
+					// Delete message at position i
+					messages.remove(i);
+					// Create a variable named "saved" that stores the answer from FileHandler (true
+					// or false)
+					boolean saved = fileHandler.saveMessages(messages);
+					return saved;
+				}
+			}
+
+		}
+		// No message with that id was found
 		return false;
 	}
 
