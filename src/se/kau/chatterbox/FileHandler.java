@@ -1,25 +1,27 @@
 package se.kau.chatterbox;
 
 import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.Scanner;
 import java.io.*;
 
 public class FileHandler {
-
 	private String fileName = "messages.csv";
 	private PrintWriter writer = null;
 	private Scanner input = null;
+	private AppController controller;
 	
-	public FileHandler() {
+	public FileHandler(AppController controller) {
+		this.controller = controller;
 	}
 	
-	private void createNewDefaultFile() {
+	public void createNewDefaultFile() {
 		try {
 			writer = new PrintWriter(new FileWriter(fileName, true));
 			//Header
 			writer.println("Id\tUsername\tCreated at\tContent");
 			//Default content
-			writer.println("1\tmartin123\tIdag\tFirst!!!");
+			writer.println("1\tmartin123\t" + LocalDate.now() + "\tFirst!!!");
 			System.out.println("FileHandler default skriven.");
 			writer.close();
 		} catch(IOException e){
@@ -40,7 +42,36 @@ public class FileHandler {
 	}
 
 	public ArrayList<Message> loadMessages(ArrayList<User> users) {
+		
 		return new ArrayList<>();
+	}
+	
+	public ArrayList<Message> testLoadAll(){
+		ArrayList<Message> messages = new ArrayList<Message>();
+		try {
+			input = new Scanner(new File(fileName));
+			int c = 0;
+			while (input.hasNextLine()) {
+				String line = input.nextLine();
+				System.out.println(line);
+				//Skippa header
+				if (c == 0) {c++; continue;}
+				String[] toks = line.split("\t");
+				int id = Integer.parseInt(toks[0].trim()); 
+				String username = toks[1].trim();
+				LocalDate createdAt = LocalDate.parse(toks[2].trim());
+				String content = toks[3].trim();
+				User user = null;
+				if(controller.isUsernameReal(username)) {					
+					user = controller.getUserByUsername(username);
+				}
+				Message message = new Message(id, content, user, createdAt);
+				messages.add(message);
+			}
+		}catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return messages;
 	}
 	
 	public boolean saveMessages(ArrayList<Message> messages) {
