@@ -9,7 +9,8 @@ public class AppController {
 	private ArrayList<Message> messages;
 	private User currentUser;
 	private FileHandler fileHandler;
-	private IdGenerator idGenerator = new IdGenerator();
+
+	// private IdGenerator idGenerator = new IdGenerator();
 
 	// Constructor
 	public AppController() {
@@ -24,14 +25,14 @@ public class AppController {
 		fileHandler = new FileHandler();
 		// Loads messages from the file. Each Message needs a User as author,
 		// but the file only has the username, so users is used to find the right User.
-		for(User user : users) {
+		for (User user : users) {
 			System.out.println("User: " + user.getUsername());
 		}
 		messages = fileHandler.loadMessages(users);
-		users = new ArrayList<User>();
-		
-		//System.out.println(messages);
-		//fileHandler.saveMessages(messages);
+		//users = new ArrayList<User>();
+
+		// System.out.println(messages);
+		// fileHandler.saveMessages(messages);
 		fileHandler.printAllFiles();
 	}
 
@@ -160,23 +161,18 @@ public class AppController {
 		// No message with that id was found
 		return false;
 	}
- 	
- 	public User newUser(ArrayList<User> users, String username, String password) throws Exception {
- 		if(isUsernameInList(users, username)) {
- 			throw new Exception("Username taken!");
- 		}
- 		
- 		User newUser = new User(idGenerator.getNewUserId(), username, password);
- 		
- 		return newUser;
- 	}
- 	
- 	public boolean isUsernameInList(ArrayList<User> users, String username) {
- 		for(User user : users) {
- 			if(user.getUsername() == username) {
- 				return true;
- 			}
- 		}
- 		return false;
- 	}
 }
+
+/*
+ * public User newUser(ArrayList<User> users, String username, String password)
+ * throws Exception { if(isUsernameInList(users, username)) { throw new
+ * Exception("Username taken!"); }
+ * 
+ * User newUser = new User(idGenerator.getNewUserId(), username, password);
+ * 
+ * return newUser; }
+ * 
+ * public boolean isUsernameInList(ArrayList<User> users, String username) {
+ * for(User user : users) { if(user.getUsername() == username) { return true; }
+ * } return false; } }
+ */
