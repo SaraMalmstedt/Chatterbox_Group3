@@ -29,19 +29,7 @@ public class Main {
 		System.out.println(test.getAuthor().getUsername() + ": " + test.getContent() + " " + test.getCreatedAt());
 		
 		//Test for FileHandler
-		FileHandler fileHandler = new FileHandler(controller);
+		FileHandler fileHandler = new FileHandler();
 		//fileHandler.createNewDefaultFile();
-		
-		ArrayList<Message> messages = new ArrayList<Message>();
-		messages.add(test);
-		fileHandler.saveMessages(messages);
-		System.out.println("Skriver ut alla:");
-		ArrayList<Message> allMessages = fileHandler.testLoadAll();
-		int i = 0;
-		for(Message message : allMessages) {
-			i++;
-			System.out.println(Integer.toString(i) + message);
-		}
-		//System.out.println(allMessages);
 	}
 }
