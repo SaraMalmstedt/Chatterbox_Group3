@@ -9,10 +9,8 @@ public class FileHandler {
 	private String fileName = "messages.csv";
 	private PrintWriter writer = null;
 	private Scanner input = null;
-	private AppController controller;
 	
-	public FileHandler(AppController controller) {
-		this.controller = controller;
+	public FileHandler() {
 	}
 	
 	public void createNewDefaultFile() {
@@ -42,11 +40,10 @@ public class FileHandler {
 	}
 
 	public ArrayList<Message> loadMessages(ArrayList<User> users) {
-		
 		return new ArrayList<>();
 	}
 	
-	public ArrayList<Message> testLoadAll(){
+	public ArrayList<Message> testLoadAll(AppController controller){
 		ArrayList<Message> messages = new ArrayList<Message>();
 		try {
 			input = new Scanner(new File(fileName));
@@ -62,7 +59,7 @@ public class FileHandler {
 				LocalDate createdAt = LocalDate.parse(toks[2].trim());
 				String content = toks[3].trim();
 				User user = null;
-				if(controller.isUsernameReal(username)) {					
+				if(controller.isUsernameInList(username)) {					
 					user = controller.getUserByUsername(username);
 				}
 				Message message = new Message(id, content, user, createdAt);
@@ -87,7 +84,7 @@ public class FileHandler {
 								+ message.getCreatedAt() + "\t"
 								+ message.getContent());
 				
-				//testutskrift, ta bort
+				//testutskrift, ta bort sen
 				System.out.println("Skriver till CSV:");
 				System.out.println(message.getMessageId() + "\t" 
 						+ message.getAuthor() + "\t" 
@@ -102,5 +99,4 @@ public class FileHandler {
 		
 		return true;
 	}
-	
 }
