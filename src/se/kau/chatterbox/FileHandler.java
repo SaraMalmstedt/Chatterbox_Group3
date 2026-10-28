@@ -40,27 +40,23 @@ public class FileHandler {
 	}
 
 	public ArrayList<Message> loadMessages(ArrayList<User> users) {
-		return new ArrayList<>();
-	}
-	
-	public ArrayList<Message> testLoadAll(AppController controller){
 		ArrayList<Message> messages = new ArrayList<Message>();
 		try {
 			input = new Scanner(new File(fileName));
 			int c = 0;
 			while (input.hasNextLine()) {
 				String line = input.nextLine();
-				System.out.println(line);
-				//Skippa header, men den printar den fortfarande
+				//Skippa header
 				if (c == 0) {c++; continue;}
+				
 				String[] toks = line.split("\t");
 				int id = Integer.parseInt(toks[0].trim()); 
 				String username = toks[1].trim();
 				LocalDate createdAt = LocalDate.parse(toks[2].trim());
 				String content = toks[3].trim();
 				User user = null;
-				if(controller.isUsernameInList(username)) {					
-					user = controller.getUserByUsername(username);
+				if(isUsernameInList(users, username)) {					
+					user = getUserByUsername(users, username);
 				}
 				Message message = new Message(id, content, user, createdAt);
 				messages.add(message);
@@ -99,4 +95,24 @@ public class FileHandler {
 		
 		return true;
 	}
+	
+	//En check för att se ifall username finns i listan, 
+	//så att man inte får tillbaka null
+ 	public boolean isUsernameInList(ArrayList<User> users, String username) {
+ 		for(User user : users) {
+ 			if(user.getUsername() == username) {
+ 				return true;
+ 			}
+ 		}
+ 		return false;
+ 	}
+ 	
+ 	public User getUserByUsername(ArrayList<User> users, String username) {
+ 		for(User user : users) {
+ 			if(user.getUsername() == username) {
+ 				return user;
+ 			}
+ 		}
+ 		return null;
+ 	}
 }
