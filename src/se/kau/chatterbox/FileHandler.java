@@ -24,6 +24,9 @@ public class FileHandler {
 			writer.println("Id\tUsername\tCreated at\tContent");
 			//Default content
 			writer.println("1\tmartin123\t" + LocalDate.now() + "\tFirst!!!");
+			writer.println("1\tsara123\t" + LocalDate.now() + "\tTvåan VANN!");
+			writer.println("1\tpontus123\t" + LocalDate.now() + "\tMeddelande");
+			writer.println("1\tlinnea123\t" + LocalDate.now() + "\tKreativt");
 			System.out.println("FileHandler default skriven.");
 			writer.close();
 		} catch(IOException e){
@@ -53,15 +56,24 @@ public class FileHandler {
 				//Skippa header
 				if (c == 0) {c++; continue;}
 				
+				System.out.println("Loaded message: ");
+				
 				String[] toks = line.split("\t");
 				int id = Integer.parseInt(toks[0].trim()); 
 				String username = toks[1].trim();
 				LocalDate createdAt = LocalDate.parse(toks[2].trim());
 				String content = toks[3].trim();
 				User user = null; 
-				if(isUsernameInList(users, username)) {					
+				if(isUsernameInList(users, username)) {
 					user = getUserByUsername(users, username);
 				}
+				System.out.println("id: " + id);
+				System.out.println("username: " + username);
+				System.out.println("created at: " + createdAt);
+				System.out.println("Content: " + content);
+				System.out.println("user: " + user);
+				System.out.println();
+				
 				Message message = new Message(id, content, user, createdAt);
 				messages.add(message);
 			}
@@ -71,13 +83,11 @@ public class FileHandler {
 		return messages;
 	}
 	
-	public boolean saveMessages(ArrayList<Message> messages) {
-		if(messages.isEmpty()) {
-			return false;
-		}
-		
+	public boolean saveMessages(ArrayList<Message> messages) {		
 		try {
-			writer = new PrintWriter(new FileWriter(fileName, true));
+			writer = new PrintWriter(new FileWriter(fileName));
+			//Header
+			writer.println("Id\tUsername\tCreated at\tContent");
 			for(Message message : messages) {
 				writer.println(message.getMessageId() + "\t" 
 								+ message.getAuthor() + "\t" 
@@ -85,11 +95,11 @@ public class FileHandler {
 								+ message.getContent());
 				
 				//testutskrift, ta bort sen
-				System.out.println("Skriver till CSV:");
-				System.out.println(message.getMessageId() + "\t" 
-						+ message.getAuthor() + "\t" 
-						+ message.getCreatedAt() + "\t"
-						+ message.getContent());
+				//System.out.println("Skriver till CSV:");
+				//System.out.println(message.getMessageId() + "\t" 
+				//		+ message.getAuthor() + "\t" 
+				//		+ message.getCreatedAt() + "\t"
+				//		+ message.getContent());
 			}
 			writer.close();
 		} catch(IOException e){
@@ -103,16 +113,19 @@ public class FileHandler {
 	//så att man inte får tillbaka null
  	public boolean isUsernameInList(ArrayList<User> users, String username) {
  		for(User user : users) {
- 			if(user.getUsername() == username) {
+ 			System.out.println("Checking username: " + username + " against " + user.getUsername());
+ 			if(user.getUsername().equals(username)) {
+ 				System.out.println("Found username!");
  				return true;
  			}
  		}
+ 		System.out.println("Did not find username!");
  		return false;
  	}
  	
  	public User getUserByUsername(ArrayList<User> users, String username) {
  		for(User user : users) {
- 			if(user.getUsername() == username) {
+ 			if(user.getUsername().equals(username)) {
  				return user;
  			}
  		}
