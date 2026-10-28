@@ -1,5 +1,6 @@
 package se.kau.chatterbox;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class AppController {
@@ -82,15 +83,45 @@ public class AppController {
 
 	}
 
+	// Method that creates a new message from the logged-in user and saves it
+	// Returns true if it was saved, or false if the message is empty or saving
+	// failed
 	public boolean postMessage(String content) {
-		return false;
+		// Return false if no one is logged in or content is empty
+		if (currentUser == null || content.isEmpty()) {
+			return false;
+		}
+
+		// Creates a variable to save the highest id so far
+		int highestId = 0;
+
+		// Loops through all messages and and finds the higest IDs
+		for (int i = 0; i < messages.size(); i++) {
+			int currentMessageId = messages.get(i).getMessageId();
+			if (currentMessageId > highestId) {
+				highestId = currentMessageId;
+			}
+
+		}
+		// Creates a new Id that is 1 higher than the highest Id in in list
+		int newId = highestId + 1;
+
+		// Creates the new message with all parameters
+		Message newMessage = new Message(newId, content, currentUser, LocalDate.now());
+
+		// Adds the new message to the ArrayList of messages
+		messages.add(newMessage);
+
+		// Create a variable named "saved" that stores the answer from FileHandler (true
+		// or
+		// false)
+		boolean saved = fileHandler.saveMessages(messages);
+		return saved;
+
 	}
 
 	public boolean deleteMessage(int messageId) {
 		return false;
 	}
- 	
- 	public void addUser(User user) {
- 		users.add(user);
- 	}
+
 }

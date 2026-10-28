@@ -21,7 +21,7 @@ public class Main {
 
 		// Test for User
 		User sara = new User(1, "Sara", "password");
-		controller.addUser(sara);
+
 		System.out.println(sara.getUsername() + " " + sara.getPassword());
 
 		// Test for message
