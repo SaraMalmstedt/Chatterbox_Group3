@@ -162,17 +162,3 @@ public class AppController {
 		return false;
 	}
 }
-
-/*
- * public User newUser(ArrayList<User> users, String username, String password)
- * throws Exception { if(isUsernameInList(users, username)) { throw new
- * Exception("Username taken!"); }
- * 
- * User newUser = new User(idGenerator.getNewUserId(), username, password);
- * 
- * return newUser; }
- * 
- * public boolean isUsernameInList(ArrayList<User> users, String username) {
- * for(User user : users) { if(user.getUsername() == username) { return true; }
- * } return false; } }
- */
