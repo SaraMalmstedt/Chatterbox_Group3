@@ -11,6 +11,10 @@ public class FileHandler {
 	private Scanner input = null;
 	
 	public FileHandler() {
+		//Om messages.csv inte finns, skapa en ny default
+		if (!new File("messages.csv").exists()) {
+			createNewDefaultFile();
+		}
 	}
 	
 	public void createNewDefaultFile() {
@@ -54,7 +58,7 @@ public class FileHandler {
 				String username = toks[1].trim();
 				LocalDate createdAt = LocalDate.parse(toks[2].trim());
 				String content = toks[3].trim();
-				User user = null;
+				User user = null; 
 				if(isUsernameInList(users, username)) {					
 					user = getUserByUsername(users, username);
 				}
@@ -92,7 +96,6 @@ public class FileHandler {
 			e.printStackTrace();
 			return false;
 		}
-		
 		return true;
 	}
 	
