@@ -11,6 +11,7 @@ public class AppController {
 
 	// Constructor
 	public AppController() {
+<<<<<<< Updated upstream
 		// Creates an empty list and fills it with users
 		users = new ArrayList<>();
 		users.add(new User(1, "sara123", "losenord1"));
@@ -23,6 +24,9 @@ public class AppController {
 		// Loads messages from the file. Each Message needs a User as author,
 		// but the file only has the username, so users is used to find the right User.
 		messages = fileHandler.loadMessages(users);
+=======
+		users = new ArrayList<User>();
+>>>>>>> Stashed changes
 	}
 
 	// Method that checks whether username and password are correct, and if so, sets
@@ -89,5 +93,38 @@ public class AppController {
 	public boolean deleteMessage(int messageId) {
 		return false;
 	}
+<<<<<<< Updated upstream
 
+=======
+	
+	public ArrayList<Message> getOwnMessages() {
+		return new ArrayList<>();
+	}
+	
+ 	public ArrayList<Message> getAllMessages() {
+ 		return new ArrayList<>();
+ 	}
+	
+ 	public boolean isUsernameReal(String username) {
+ 		for(User user : users) {
+ 			if(user.getUsername() == username) {
+ 				return true;
+ 			}
+ 		}
+ 		return false;
+ 	}
+ 	
+ 	public User getUserByUsername(String username) {
+ 		for(User user : users) {
+ 			if(user.getUsername() == username) {
+ 				return user;
+ 			}
+ 		}
+ 		return null;
+ 	}
+ 	
+ 	public void addUser(User user) {
+ 		users.add(user);
+ 	}
+>>>>>>> Stashed changes
 }
