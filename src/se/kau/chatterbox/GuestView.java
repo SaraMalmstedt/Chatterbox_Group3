@@ -15,7 +15,7 @@ public class GuestView {
 
 	public void displayMenu() {
 		
-		int choice;
+		String choice;
 		
 		
 		do {
@@ -24,11 +24,11 @@ public class GuestView {
             System.out.println("2. Back to main menu");
             System.out.print("Enter your choice: ");
 
-            choice = scanner.nextInt();
+            choice = scanner.nextLine();
 
             switch (choice) {
 
-                case 1:
+                case "1":
                     displayAllMessages();
                     
                     System.out.println("Press Enter to return to the menu...");
@@ -37,7 +37,7 @@ public class GuestView {
 
                     break;
 
-                case 2:
+                case "2":
                     System.out.println("Returning to main menu");
                     break;
 
@@ -45,7 +45,7 @@ public class GuestView {
                     System.out.println("Invalid choice. Try again!");
             }
 
-        } while (choice != 2);
+        } while (!choice.equals("2"));
 		
     }
 	
