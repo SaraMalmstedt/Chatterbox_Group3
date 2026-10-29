@@ -8,9 +8,9 @@ public class GuestView {
 	private AppController controller;
 	private Scanner scanner;
 	
-	public GuestView(AppController controller) {
+	public GuestView(AppController controller, Scanner scanner) {
 		this.controller = controller;
-		this.scanner = new Scanner(System.in);
+	    this.scanner = scanner;
 	}
 
 	public void displayMenu() {
@@ -32,7 +32,6 @@ public class GuestView {
                     displayAllMessages();
                     
                     System.out.println("Press Enter to return to the menu...");
-                    scanner.nextLine();
                     scanner.nextLine();
 
                     break;
