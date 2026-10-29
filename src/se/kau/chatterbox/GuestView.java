@@ -31,7 +31,7 @@ public class GuestView {
                 case 1:
                     displayAllMessages();
                     
-                    System.out.println("\nPress Enter to return to the menu...");
+                    System.out.println("Press Enter to return to the menu...");
                     scanner.nextLine();
                     scanner.nextLine();
 
