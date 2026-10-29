@@ -61,13 +61,11 @@ public class FileHandler {
 				String username = toks[1].trim();
 				LocalDate createdAt = LocalDate.parse(toks[2].trim());
 				String content = toks[3].trim();
-				User user = null; 
 				if(isUsernameInList(users, username)) {
-					user = getUserByUsername(users, username);
+					User user = getUserByUsername(users, username);
+					Message message = new Message(id, content, user, createdAt);
+					messages.add(message);
 				}
-				
-				Message message = new Message(id, content, user, createdAt);
-				messages.add(message);
 			}
 		}catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -82,7 +80,7 @@ public class FileHandler {
 			writer.println("Id\tUsername\tCreated at\tContent");
 			for(Message message : messages) {
 				writer.println(message.getMessageId() + "\t" 
-								+ message.getAuthor() + "\t" 
+								+ message.getAuthor().getUsername() + "\t" 
 								+ message.getCreatedAt() + "\t"
 								+ message.getContent());
 			}
