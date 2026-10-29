@@ -1,5 +1,6 @@
 package se.kau.chatterbox;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserView {
@@ -77,6 +78,7 @@ public class UserView {
 
 	    case "5":
 	        System.out.println("Returning to start menu.");
+	        running = false; 
 	        break;
 
 	    default:
@@ -87,17 +89,103 @@ public class UserView {
 	}
 
 	public void displayOwnMessages() {
+		
+		// hämtar meddelanden från Appcontroller
+	    ArrayList<Message> messages = controller.getOwnMessages();
+	    
+	    System.out.println("\n--- My Messages ---");
+	    
+	    
+	    if (messages.isEmpty()) {
+	        System.out.println("You have not posted any messages");
+	        return;
+	    }
+	    
+	    // visar varje message
+	    for (Message message : messages) {
+	            System.out.println("Message ID: " + message.getMessageId());
+	            System.out.println("Author: " + message.getAuthor().getUsername());
+	            System.out.println("Date: " + message.getCreatedAt());
+	            System.out.println("Message: " + message.getContent());
+	            System.out.println("----------------------------");
+	    }
+	    
 	}
 
 	public void displayAllMessages() {
+		// Hämtar alla meddelanden från AppController
+	    ArrayList<Message> messages = controller.getAllMessages();
 
+	    System.out.println("\n--- All Messages ---");
+
+	    // Kontrollerar om listan är tom
+	    if (messages.isEmpty()) {
+	        System.out.println("No messages available.");
+	        return;
+	    }
+
+	    // Visar alla meddelanden
+	    for (Message message : messages) {
+
+	        System.out.println("Message ID: " + message.getMessageId());
+	        System.out.println("Author: " + message.getAuthor().getUsername());
+	        System.out.println("Date: " + message.getCreatedAt());
+	        System.out.println("Message: " + message.getContent());
+	        System.out.println("----------------------------");
+	    }
 	}
 
 	public void displaypostMessage() {
+		   // Visar rubrik
+	    System.out.println("\n--- Post Message ---");
+
+	    // Ber användaren skriva ett meddelande
+	    System.out.print("Write your message: ");
+	    String content = scanner.nextLine();
+
+	    // Skickar meddelandet till AppController
+	    boolean success = controller.postMessage(content);
+
+	    // Visar om meddelandet postades eller inte
+	    if (success) {
+	        System.out.println("Message posted successfully!");
+	    } else {
+	        System.out.println("Could not post message.");
+	    }
 
 	}
 
 	public void displayDeleteMessage() {
+		// Visar rubrik
+	    System.out.println("\n--- Delete Message ---");
+
+	    // Visar användarens egna meddelanden
+	    displayOwnMessages();
+
+	    // Ber användaren välja meddelande
+	    System.out.print("Enter message ID to delete: ");
+	    String input = scanner.nextLine();
+
+	    try {
+
+	        // Omvandlar text till heltal
+	        int messageId = Integer.parseInt(input);
+
+	        // Skickar ID till AppController
+	        boolean success = controller.deleteMessage(messageId);
+
+	        // Visar resultatet
+	        if (success) {
+	            System.out.println("Message deleted successfully!");
+	        } else {
+	            System.out.println("Could not delete message.");
+	        }
+
+	    } catch (NumberFormatException e) {
+
+	        System.out.println("Invalid message ID. Please enter a number.");
+
+	    }
 
 	}
 
