@@ -8,9 +8,9 @@ public class UserView {
 	private Scanner scanner;
 	
 	//Constructur
-	public UserView(AppController controller) {
+	public UserView(AppController controller, Scanner scanner) {
 		this.controller = controller;
-		this.scanner = new Scanner(System.in);
+		this.scanner = scanner;
 	}
 
 	public boolean displayLogin() {
@@ -69,7 +69,7 @@ public class UserView {
 	        break;
 
 	    case "3":
-	        displaypostMessage();
+	        displayPostMessage();
 	        break;
 
 	    case "4":
@@ -135,7 +135,7 @@ public class UserView {
 	    }
 	}
 
-	public void displaypostMessage() {
+	public void displayPostMessage() {
 		   // Visar rubrik
 	    System.out.println("\n--- Post Message ---");
 

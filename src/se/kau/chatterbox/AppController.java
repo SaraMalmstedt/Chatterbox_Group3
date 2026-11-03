@@ -2,15 +2,13 @@ package se.kau.chatterbox;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 public class AppController {
 	private ArrayList<User> users;
 	private ArrayList<Message> messages;
 	private User currentUser;
 	private FileHandler fileHandler;
-
-	// private IdGenerator idGenerator = new IdGenerator();
 
 	// Constructor
 	public AppController() {
@@ -25,15 +23,8 @@ public class AppController {
 		fileHandler = new FileHandler();
 		// Loads messages from the file. Each Message needs a User as author,
 		// but the file only has the username, so users is used to find the right User.
-		for (User user : users) {
-			System.out.println("User: " + user.getUsername());
-		}
 		messages = fileHandler.loadMessages(users);
-		//users = new ArrayList<User>();
-
-		// System.out.println(messages);
-		// fileHandler.saveMessages(messages);
-		fileHandler.printAllFiles();
+		
 	}
 
 	// Method that checks whether username and password are correct, and if so, sets
@@ -96,7 +87,7 @@ public class AppController {
 	// failed
 	public boolean postMessage(String content) {
 		// Return false if no one is logged in or content is empty
-		if (currentUser == null || content.isEmpty()) {
+		if (currentUser == null || content.trim().isEmpty()) {
 			return false;
 		}
 
