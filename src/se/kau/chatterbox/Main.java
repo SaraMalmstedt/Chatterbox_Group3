@@ -45,6 +45,6 @@ public class Main {
 		// Creates a GuestView and hands controller over to its constructur
 		GuestView guestView = new GuestView(controller, scanner);
 
-		displayStartMenu(scanner, userView, guestView, controller);
+		displayStartMenu(scanner, userView, guestView);
 	}
 }
